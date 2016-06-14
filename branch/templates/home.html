@@ -1,0 +1,19 @@
+{% extends "./add_app_base.html" %}
+{% block main%}
+<div class="col-md-10">
+    <!-- bootstrap 特性容器  <div class="col-md-10">-->
+    <!-- <div class="container"> -->
+    <form action="/addApplication" method="post" role="form">
+        <div class="form-group">
+            <label class="control-label">APP名称：&nbsp </label>
+            <input class="form-control" type="text" name="name" placeholder="enter app name"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">APP状态：&nbsp </label>
+            <input class="form-control" type="hidden" name="status" value="1"/>
+        </div>
+        <input type="submit"  value="添加APP" class="btn btn-default "/>
+    </form>
+    <!--  </div> -->
+</div>
+{% endblock %}

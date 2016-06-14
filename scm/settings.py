@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'branch',
     'apollo_release',
     'apollo_cmdb',
     'apollo_rca',

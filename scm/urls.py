@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from branch import views as branch_views # from branch app
+#from branch import views as branch_views # from branch app
 from apollo_release import views as release_views
 
 
@@ -23,17 +23,18 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # for test purpose
     #url(r'^home/', branch_views.home, name='home'),
-    url(r'^addApplication$', branch_views.addApplication, name='addApplication'),
-    url(r'^app_q$',branch_views.app_query,name='app_query'),
-    url(r'^app_delete$',branch_views.app_delByID,name='app_delByID'),
-    url(r'^app_showid$',branch_views.app_showUid,name='app_showUid'),
-    url(r'^app_query$',branch_views.app_queryById,name='app_queryById'),
+    #url(r'^addApplication$', branch_views.addApplication, name='addApplication'),
+    #url(r'^app_q$',branch_views.app_query,name='app_query'),
+    #url(r'^app_delete$',branch_views.app_delByID,name='app_delByID'),
+    #url(r'^app_showid$',branch_views.app_showUid,name='app_showUid'),
+    #url(r'^app_query$',branch_views.app_queryById,name='app_queryById'),
     #url(r'^index$',branch_views.index,name='index'),
 
     # for index page
     url(r'^index$', release_views.index, name='index'),
 
     # for release application
+    # for product management
     url(r'^prod_query$',release_views.prod_query,name='prod_query'),
     url(r'^prod_queryByID$',release_views.prod_queryByID,name='prod_queryByID'),
     url(r'^prod_new$',release_views.prod_new,name='prod_new'),
@@ -41,6 +42,11 @@ urlpatterns = [
     url(r'^prod_update$',release_views.prod_update,name='prod_update'),
     url(r'^prod_deleteByID$',release_views.prod_deleteByID,name='prod_deleteByID'),
     url(r'^prod_showByID$',release_views.prod_showByID,name='prod_showByID'),
+
+    # for application management
+    url(r'^app_new$',release_views.app_new,name='app_new'),
+    url(r'^app_add$',release_views.app_add,name='app_add'),
+    url(r'^app_query$',release_views.app_query,name='app_query'),
     # for cmdb application
 
     # for rca application

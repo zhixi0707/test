@@ -17,7 +17,7 @@ from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from .models import product
+from .models import product, application
 
 @csrf_exempt
 def index(request):
@@ -89,3 +89,46 @@ def prod_deleteByID(request):
     data=product.objects.get(id=id)
     data.delete()
     return HttpResponseRedirect("prod_query")
+
+def app_new(request):
+    prod_id=request.GET['prod_id'];
+    return render_to_response('app_new.html',{'prod_id':prod_id},context_instance = RequestContext(request))
+
+# 新增prod信息
+def app_add(request):
+    prod_id=request.POST['prod_id']
+    name=request.POST['name']
+    status=request.POST['status']
+    version=request.POST['version']
+    version_prefix=request.POST['version_prefix']
+    scm_tool=request.POST['scm_tool']
+    repo_url=request.POST['repo_url']
+    deploy_path=request.POST['deploy_path']
+    package_job=request.POST['package_job']
+    auto_test_job=request.POST['auto_test_job']
+    data=application()
+    data.name=name
+    data.status=status
+    data.prod_id=prod_id
+    data.version=version
+    data.version_prefix=version_prefix
+    data.scm_tool=scm_tool
+    data.repo_url=repo_url
+    data.deploy_path=deploy_path
+    data.package_job=package_job
+    data.auto_test_job=auto_test_job
+    data.save()
+    return HttpResponseRedirect("app_query")
+
+def app_query(request):
+    limit = 5  # 每页显示的记录数
+    data = application.objects.all()
+    paginator = Paginator(data, limit)  # 实例化一个分页对象
+    page = request.GET.get('page')  # 获取页码
+    try:
+        data = paginator.page(page)  # 获取某页对应的记录
+    except PageNotAnInteger:  # 如果页码不是个整数
+        data = paginator.page(1)  # 取第一页的记录
+    except EmptyPage:  # 如果页码太大，没有相应的记录
+        data = paginator.page(paginator.num_pages)  # 取最后一页的记录
+    return render_to_response('app_curd.html',{'data':data})

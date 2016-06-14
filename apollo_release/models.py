@@ -48,11 +48,11 @@ class application(models.Model):
     name=models.CharField(max_length=20)
     status=models.IntegerField(choices=ACTIVE_STATUS, default=1)
     create_time=models.DateTimeField(auto_now_add=True)
-    version=models.CharField(max_length=20)
-    version_prefix=models.CharField(max_length=20)
-    scm_tool=models.CharField(max_length=20) # git or svn
-    repo_url=models.URLField(max_length=300)
-    deploy_path=models.CharField(max_length=50)
+    version=models.CharField(max_length=20,default="null")
+    version_prefix=models.CharField(max_length=20,default="null")
+    scm_tool=models.CharField(max_length=20,default="null") # git or svn
+    repo_url=models.URLField(max_length=300,default="null")
+    deploy_path=models.CharField(max_length=50,default="null")
     package_job=models.URLField(max_length=300,default="null")
     auto_test_job=models.URLField(max_length=300,default="null")
 

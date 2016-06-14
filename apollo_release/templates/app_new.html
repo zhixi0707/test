@@ -1,0 +1,49 @@
+﻿{% extends "./release_base.html" %}
+{% block main%}
+<div class="col-md-10">
+	<!-- bootstrap 特性容器  <div class="col-md-10">-->
+	<!-- <div class="container"> -->
+	<form action="/app_add" method="post" role="form">
+		{% csrf_token %}
+		<input type="text" name="prod_id"  value="{{ prod_id }}" ><br/>
+		<div class="form-group">
+			<label class="control-label">应用名称：&nbsp </label>
+			<input class="form-control" type="text" name="name" placeholder="Enter app name"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">应用状态：&nbsp </label>
+			<input class="form-control" type="number" name="status" placeholder="Enter app status"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">当前版本号：&nbsp </label>
+			<input class="form-control" type="text" name="version" placeholder="can be null"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">版本号前缀：&nbsp </label>
+			<input class="form-control" type="text" name="version_prefix" placeholder="Enter the version prefix"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">SCM工具(git/svn)：&nbsp </label>
+			<input class="form-control" type="text" name="scm_tool" placeholder="Enter the scm tool"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">SCM库URL：&nbsp </label>
+			<input class="form-control" type="text" name="repo_url" placeholder="Enter the scm repo URL"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">部署路径：&nbsp </label>
+			<input class="form-control" type="text" name="deploy_path" placeholder="Enter the deploy path"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">打包jenkins任务：&nbsp </label>
+			<input class="form-control" type="text" name="package_job" placeholder="Enter the package jenkins job"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">自动化测试jenkins任务：&nbsp </label>
+			<input class="form-control" type="text" name="auto_test_job" placeholder="Enter the autotest jenkins job"/>
+		</div>
+		<input type="submit"  value="创建应用" class="btn btn-default "/>
+	</form>
+	<!--  </div> -->
+</div>
+{% endblock %}

@@ -3,49 +3,50 @@
 <div class="col-md-10">
 	<!-- bootstrap 特性容器  <div class="col-md-10">-->
 	<!-- <div class="container"> -->
-	<form action="/app_add" method="post" role="form">
+	<form action="/app_update" method="post" role="form">
 		{% csrf_token %}
+		<input type="hidden" name="id"  value="{{ data.id }}" ><br/>
 		<div class="form-group">
 			<label class="control-label">所属产品id：&nbsp </label>
-			<input class="form-control" type="text" readonly="readonly" name="prod_id"  value="{{ prod_id }}" >
+			<input class="form-control" type="text" readonly="readonly" name="prod_id"  value="{{ data.prod_id }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">应用名称：&nbsp </label>
-			<input class="form-control" type="text" name="name" placeholder="Enter app name"/>
+			<input class="form-control" type="text" name="name" value="{{ data.name }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">应用状态：&nbsp </label>
-			<input class="form-control" type="number" name="status" placeholder="Enter app status"/>
+			<input class="form-control" type="number" name="status" value="{{ data.status }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">当前版本号：&nbsp </label>
-			<input class="form-control" type="text" name="version" placeholder="can be null"/>
+			<input class="form-control" type="text" name="version" value="{{ data.version }}"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label">版本号前缀：&nbsp </label>
-			<input class="form-control" type="text" name="version_prefix" placeholder="Enter the version prefix"/>
+			<input class="form-control" type="text" name="version_prefix" value="{{ data.version_prefix }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">SCM工具(git/svn)：&nbsp </label>
-			<input class="form-control" type="text" name="scm_tool" placeholder="Enter the scm tool"/>
+			<input class="form-control" type="text" name="scm_tool" value="{{ data.scm_tool }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">SCM库URL：&nbsp </label>
-			<input class="form-control" type="text" name="repo_url" placeholder="Enter the scm repo URL"/>
+			<input class="form-control" type="text" name="repo_url" value="{{ data.repo_url }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">部署路径：&nbsp </label>
-			<input class="form-control" type="text" name="deploy_path" placeholder="Enter the deploy path"/>
+			<input class="form-control" type="text" name="deploy_path" value="{{ data.deploy_path }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">打包jenkins任务：&nbsp </label>
-			<input class="form-control" type="text" name="package_job" placeholder="Enter the package jenkins job"/>
+			<input class="form-control" type="text" name="package_job" value="{{ data.package_job }}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">自动化测试jenkins任务：&nbsp </label>
-			<input class="form-control" type="text" name="auto_test_job" placeholder="Enter the autotest jenkins job"/>
+			<input class="form-control" type="text" name="auto_test_job" value="{{ data.auto_test_job }}" />
 		</div>
-		<input type="submit"  value="创建应用" class="btn btn-default "/>
+		<input type="submit"  value="更新应用" class="btn btn-default "/>
 	</form>
 	<!--  </div> -->
 </div>

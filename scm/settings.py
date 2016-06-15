@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'scm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ci_scm',
+        'NAME': 'ci_scm2',
         'USER': 'root',
         'PASSWORD':'55admin',
         'HOST':'127.0.0.1',

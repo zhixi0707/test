@@ -47,7 +47,16 @@ urlpatterns = [
     url(r'^app_new$',release_views.app_new,name='app_new'),
     url(r'^app_add$',release_views.app_add,name='app_add'),
     url(r'^app_query$',release_views.app_query,name='app_query'),
+    url(r'^app_queryByID$',release_views.app_queryByID,name='app_queryByID'),
+    url(r'^app_deleteByID$',release_views.app_deleteByID,name='app_deleteByID'),
+    url(r'^app_showByID$',release_views.app_showByID,name='app_showByID'),
+    url(r'^app_update$',release_views.app_update,name='app_update'),
+
+    # for application workspace management
+    url(r'^app_ws$',release_views.app_ws,name='app_ws'),
+
     # for cmdb application
+
 
     # for rca application
 

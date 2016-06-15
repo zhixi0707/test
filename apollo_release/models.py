@@ -4,10 +4,17 @@ from django.db import models
 
 # Create your models here.
 BRANCH_STATUS = (
-    (0, 'new'),
+    (0, 'open'),
     (1, 'assigned'),
     (2, 'integrated'),
     (3, 'released'),
+    (4, 'ignored'),
+)
+
+BRANCH_TYPE = (
+    (0, 'release'),
+    (1, 'develop'),
+    (2, 'other'),
 )
 
 ACTIVE_STATUS = (
@@ -63,17 +70,23 @@ class app_version(models.Model):
     note=models.TextField()
     comments=models.TextField() # record the version action history "who when do what"
 
-class app_integration(models.Model):
-    version=models.OneToOneField(app_version)
-
 class app_branch(models.Model):
-    app=models.ForeignKey(application)
-    integration=models.OneToOneField(app_integration)
-    name=models.CharField(max_length=50)
+    app=models.ForeignKey(application,default=1)
+    name=models.CharField(max_length=50,default="null")
     status=models.IntegerField(choices=BRANCH_STATUS, default=1)
     purpose=models.TextField()
-    dev_list=models.CharField(max_length=50)
-    qa_list=models.CharField(max_length=50)
+    dev_list=models.CharField(max_length=50,default="null")
+    qa_list=models.CharField(max_length=50,default="null")
+    ## can expend more properties, like "changed files" "lines" "merge_request" "ut_rate" etc
+
+class app_integration(models.Model):
+    version=models.CharField(max_length=50,default="null")
+    app=models.ForeignKey(application,default=1)
+    release_branch=models.OneToOneField(app_branch,default=1)
+    dev_branch_list=models.CharField(max_length=100,default="null")# branch id list, use "," to split
+    status=models.CharField(max_length=500,default="null") # format "env:status,env:status" to record the progress
+    comments=models.TextField(default="null") # record the version action history "who when do what"
+    ## can expend more properties, like "fun_test_pass_rate" ......
 
 ###################################################################
 # applications table

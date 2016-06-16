@@ -178,11 +178,11 @@ def app_update(request):
     data.save()
     return HttpResponseRedirect("app_query")
 
-def app_ws(request):
+def app_dev_ws(request):
     id=request.GET['id']
     app=application.objects.get(id=id)
     prod_id=app.prod_id
     prod=product.objects.get(id=prod_id)
     #return render_to_response('app_update.html',{'data':app},context_instance = RequestContext(request))
     #return render_to_response('app_test.html',{'prod_data':prod})
-    return render(request, 'app_test.html',locals())
+    return render(request, 'app_dev.html',locals())

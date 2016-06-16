@@ -1,0 +1,24 @@
+﻿{% extends "./release_base.html" %}
+
+{% block main%}
+	
+</head>
+
+<div class="col-md-10">
+	<form class="form-inline" role="form">
+		<label class="control-label">应用 {{app.name}} 基本信息: &nbsp</label> </br></br>
+		<label class="control-label">当前发布分支:  <input class="form-control" type="text" name="prod_name" style="width:150px" value="{{prod.name}}"> </label> &nbsp&nbsp&nbsp&nbsp
+		<label class="control-label">发布分支最新commit:  <input class="form-control" type="text" name="app_name" style="width:150px" value="{{app.name}}"> </label>
+	</form>
+
+	<form class="form-inline" role="form" >
+		<br></br>
+		<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-primary">分支管理</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_integrate?app_id={{app.id}}" class="btn btn-primary">启动集成发布</a>
+	</form>
+
+</div>
+
+<!-- 以Bootstrap3为模板 构建前台界面 -->
+
+{% endblock %}

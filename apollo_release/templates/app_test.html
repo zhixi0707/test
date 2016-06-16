@@ -5,8 +5,10 @@
 </head>
 
 <div class="col-md-10">
-	<label class="control-label">产品名称: &nbsp</label> <input class="form-control" type="text" name="id" value="{{prod.name}}"/>
-	<label class="control-label">应用名称: &nbsp</label> <input class="form-control" type="text" name="id" value="{{app.name}}"/>
+	<form class="form-inline" role="form">
+		<label class="control-label">产品名称: &nbsp <input class="form-control" type="text" name="prod_name" style="width:120px" value="{{prod.name}}"> </label>
+		<label class="control-label">应用名称: &nbsp <input class="form-control" type="text" name="app_name" style="width:120px" value="{{app.name}}"> </label>
+	</form>
 </div>
 
 <!-- 以Bootstrap3为模板 构建前台界面 -->

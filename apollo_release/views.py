@@ -17,7 +17,9 @@ from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from .models import product, application
+from .models import product, application, app_branch
+
+GITLAB_KEY = 3TfHCNJWQ9nb-HNxhNhX
 
 @csrf_exempt
 def index(request):
@@ -186,3 +188,49 @@ def app_dev_ws(request):
     #return render_to_response('app_update.html',{'data':app},context_instance = RequestContext(request))
     #return render_to_response('app_test.html',{'prod_data':prod})
     return render(request, 'app_dev.html',locals())
+
+def app_br_mng(request):
+    app_id=request.GET['app_id']
+    app=application.objects.get(id=app_id)
+
+    branches=app_branch.objects.filter(app_id=app_id).order_by("-create_time")
+    #return render_to_response('app_update.html',{'data':app},context_instance = RequestContext(request))
+    #return render_to_response('app_test.html',{'prod_data':prod})
+    return render(request, 'app_br_mng.html',locals())
+
+# 新增prod信息
+def app_br_add(request):
+    app_id=request.POST['app_id']
+    name=request.POST['name']
+    status=request.POST['status']
+    type=request.POST['type']
+    purpose=request.POST['purpose']
+    dev_list=request.POST['dev_list']
+    qa_list=request.POST['qa_list']
+
+    data=app_branch()
+    data.app_id=app_id
+    data.name=name
+    data.status=status
+    data.type=type
+    data.purpose=purpose
+    data.dev_list=dev_list
+    data.qa_list=qa_list
+    data.save()
+
+    app=application.objects.get(id=app_id)
+    branches=app_branch.objects.filter(app_id=app_id).order_by("-create_time")
+    #return HttpResponseRedirect("app_br_mng",{'app_id':app_id})
+    
+    ###!!!! here the paginator has problem, cannot view "next page" !!####
+    limit = 10  # 每页显示的记录数
+    paginator = Paginator(branches, limit)  # 实例化一个分页对象
+    page = request.GET.get('page')  # 获取页码
+    try:
+        branches = paginator.page(page)  # 获取某页对应的记录
+    except PageNotAnInteger:  # 如果页码不是个整数
+        branches = paginator.page(1)  # 取第一页的记录
+    except EmptyPage:  # 如果页码太大，没有相应的记录
+        branches = paginator.page(paginator.num_pages)  # 取最后一页的记录
+
+    return render(request, 'app_br_mng.html',locals())

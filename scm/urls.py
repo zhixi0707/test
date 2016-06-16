@@ -54,6 +54,8 @@ urlpatterns = [
 
     # for application workspace management
     url(r'^app_dev_ws$',release_views.app_dev_ws,name='app_dev_ws'),
+    url(r'^app_br_mng$',release_views.app_br_mng,name='app_br_mng'),
+    url(r'^app_br_add$',release_views.app_br_add,name='app_br_add'),
 
     # for cmdb application
 

@@ -74,6 +74,8 @@ class app_branch(models.Model):
     app=models.ForeignKey(application,default=1)
     name=models.CharField(max_length=50,default="null")
     status=models.IntegerField(choices=BRANCH_STATUS, default=1)
+    type=models.IntegerField(choices=BRANCH_TYPE, default=0)
+    create_time=models.DateTimeField(auto_now_add=True)
     purpose=models.TextField()
     dev_list=models.CharField(max_length=50,default="null")
     qa_list=models.CharField(max_length=50,default="null")

@@ -1,0 +1,111 @@
+﻿{% extends "./release_base.html" %}
+{% block main%}
+
+<style>
+	<!-- 设置table内容居中 -->
+	.table th, .table td {
+	text-align: center;
+	}
+</style>
+
+<div class="col-md-10">
+	<!-- bootstrap 特性容器  <div class="col-md-10">-->
+	<!-- <div class="container"> -->
+	<form action="/app_br_add" method="post" role="form">
+		{% csrf_token %}
+		<div class="form-group">
+			<label class="control-label">所属应用id：&nbsp </label>
+			<input class="form-control" type="text" readonly="readonly" name="app_id"  value="{{ app_id }}" >
+		</div>
+		<div class="form-group">
+			<label class="control-label">分支名称：&nbsp </label>
+			<input class="form-control" type="text" name="name" placeholder="Enter branch name"/>
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="hidden" name="status" value="1" />
+		</div>
+		<div class="form-group">
+			<label class="control-label">分支类型：&nbsp(0:release; &nbsp &nbsp  1:develop; &nbsp &nbsp  2:other &nbsp) </label>
+			<input class="form-control" type="text" name="type" placeholder="Enter branch type"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">分支说明：&nbsp </label>
+			<input class="form-control" type="text" name="purpose" placeholder="Enter branch purpose"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">开发人员列表：&nbsp </label>
+			<input class="form-control" type="text" name="dev_list" placeholder="Enter dev list"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label">QA人员列表：&nbsp </label>
+			<input class="form-control" type="text" name="qa_list" placeholder="Enter QA list"/>
+		</div>
+		<input type="submit"  value="创建分支" class="btn btn btn-primary "/>
+		<!-- &nbsp&nbsp <a href="/app_dev_ws?id={{app_id}}" class="btn btn-primary">返回工作区</a>  -->
+	</form>
+	<!--  </div> -->
+	<p></p>
+	<form>
+		<br>
+		<label class="control-label">应用分支列表：&nbsp </label>
+	</form>
+	<table class="table table-bordered form-inline" align="center">
+		<thead >
+		<tr>
+			<th>
+				<div class="checkbox ">
+					<label>
+						<input type="checkbox" id="checkAll" value="">
+					</label>
+				</div>
+			</th>
+			<th>分支编号</th>  <th>分支名称</th> <th>分支状态</th> <th>分支类型</th> <th>分支说明</th>  <th>开发人员列表</th> <th>QA人员列表</th>
+			<!-- <th>版本前缀</th> <th>SCM工具</th> <th>SCM库URL</th> <th>部署路径</th> <th>打包jenkins任务</th> <th>自动化测试jenkins任务</th>
+            -->
+			<th>常用操作</th>
+		</tr>
+		</thead>
+		<tbody >
+		{%  for d in branches %}
+		<!-- 显示不同背景 -->
+		<tr {% if forloop.counter|divisibleby:"2"  %} class="active"
+		{% else %} class="success"  {% endif %}  >
+		<td>
+			<input type="checkbox" name="subBox" value="{{d.id}}" >
+		</td>
+		<td>{{ d.id }}</td>
+		<td>{{ d.name }}</td>
+		<td>{{ d.status }}</td>
+		<td>{{ d.type }}</td>
+		<td>{{ d.purpose }}</td>
+		<td>{{ d.dev_list }}</td>
+		<td>{{ d.qa_list }}</td>
+		<!--
+        <td>{{ d.version_prefix }}</td>
+        <td>{{ d.scm_tool }}</td>
+        <td>{{ d.repo_url }}</td>
+        <td>{{ d.deploy_path }}</td>
+        <td>{{ d.package_job }}</td>
+        <td>{{ d.auto_test_job }}</td>
+        -->
+		<td>&nbsp<a href="/app_dev_ws?id={{d.id}}" class="btn btn-primary">进入工作区</a>
+			&nbsp&nbsp<a href="/app_showByID?id={{d.id}}">修改</a>
+			&nbsp&nbsp<a href="/app_deleteByID?id={{ d.id }}" class="text-danger">删除</a>
+		</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+	<p>
+		{% if branches.has_previous %}
+		<a href="?page={{ branches.previous_page_number }}">上一页</a>
+		{% endif %}
+		{# branches.paginator.number_pages 返回总页数 #}
+		第{{ branches.number }}页 | 共{{ branches.paginator.num_pages }}页
+		{% if branches.has_next %}
+		<a href="?page={{ branches.next_page_number }}">下一页</a>
+		{% endif %}
+	</p>
+</div>
+{% endblock %}

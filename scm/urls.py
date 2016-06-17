@@ -53,7 +53,7 @@ urlpatterns = [
     url(r'^app_update$',release_views.app_update,name='app_update'),
 
     # for application workspace management
-    url(r'^app_dev_ws$',release_views.app_dev_ws,name='app_dev_ws'),
+    url(r'^app_ws$',release_views.app_ws,name='app_ws'),
     url(r'^app_br_mng$',release_views.app_br_mng,name='app_br_mng'),
     url(r'^app_br_add$',release_views.app_br_add,name='app_br_add'),
 

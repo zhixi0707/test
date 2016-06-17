@@ -19,7 +19,8 @@ from django.template import RequestContext
 
 from .models import product, application, app_branch
 
-GITLAB_KEY = 3TfHCNJWQ9nb-HNxhNhX
+import release_common
+
 
 @csrf_exempt
 def index(request):
@@ -116,6 +117,7 @@ def app_add(request):
     data.version_prefix=version_prefix
     data.scm_tool=scm_tool
     data.repo_url=repo_url
+    data.repo_name=release_common.gitlabGetRepoName(repo_url)
     data.deploy_path=deploy_path
     data.package_job=package_job
     data.auto_test_job=auto_test_job
@@ -174,20 +176,21 @@ def app_update(request):
     data.version=version
     data.version_prefix=version_prefix
     data.repo_url=repo_url
+    data.repo_name=release_common.gitlabGetRepoName(repo_url)
     data.deploy_path=deploy_path
     data.package_job=package_job
     data.auto_test_job=auto_test_job
     data.save()
     return HttpResponseRedirect("app_query")
 
-def app_dev_ws(request):
+def app_ws(request):
     id=request.GET['id']
     app=application.objects.get(id=id)
     prod_id=app.prod_id
     prod=product.objects.get(id=prod_id)
     #return render_to_response('app_update.html',{'data':app},context_instance = RequestContext(request))
     #return render_to_response('app_test.html',{'prod_data':prod})
-    return render(request, 'app_dev.html',locals())
+    return render(request, 'app_ws.html',locals())
 
 def app_br_mng(request):
     app_id=request.GET['app_id']
@@ -216,21 +219,23 @@ def app_br_add(request):
     data.purpose=purpose
     data.dev_list=dev_list
     data.qa_list=qa_list
-    data.save()
 
     app=application.objects.get(id=app_id)
-    branches=app_branch.objects.filter(app_id=app_id).order_by("-create_time")
-    #return HttpResponseRedirect("app_br_mng",{'app_id':app_id})
-    
-    ###!!!! here the paginator has problem, cannot view "next page" !!####
-    limit = 10  # 每页显示的记录数
-    paginator = Paginator(branches, limit)  # 实例化一个分页对象
-    page = request.GET.get('page')  # 获取页码
-    try:
-        branches = paginator.page(page)  # 获取某页对应的记录
-    except PageNotAnInteger:  # 如果页码不是个整数
-        branches = paginator.page(1)  # 取第一页的记录
-    except EmptyPage:  # 如果页码太大，没有相应的记录
-        branches = paginator.page(paginator.num_pages)  # 取最后一页的记录
-
-    return render(request, 'app_br_mng.html',locals())
+    result=release_common.gitlabCreateBranch(app.repo_name,name)
+    if result == release_common.SUCCESS :
+        data.save()
+        branches=app_branch.objects.filter(app_id=app_id).order_by("-create_time")
+        #return HttpResponseRedirect("app_br_mng",{'app_id':app_id})
+        ###!!!! here the paginator has problem, cannot view "next page" !!####
+        limit = 10  # 每页显示的记录数
+        paginator = Paginator(branches, limit)  # 实例化一个分页对象
+        page = request.GET.get('page')  # 获取页码
+        try:
+            branches = paginator.page(page)  # 获取某页对应的记录
+        except PageNotAnInteger:  # 如果页码不是个整数
+            branches = paginator.page(1)  # 取第一页的记录
+        except EmptyPage:  # 如果页码太大，没有相应的记录
+            branches = paginator.page(paginator.num_pages)  # 取最后一页的记录
+        return render(request, 'app_br_mng.html',locals())
+    else:
+        return HttpResponseRedirect("app_query")

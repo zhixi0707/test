@@ -7,9 +7,20 @@
 <div class="col-md-10">
 	<form class="form-inline" role="form">
 		<label class="control-label">应用" {{app.name}} "基本信息: &nbsp</label> </br></br>
-		<label class="control-label">当前发布分支:  <input class="form-control" type="text" name="prod_name" style="width:150px" value="{{app.}}"> </label> &nbsp&nbsp&nbsp&nbsp
-		<label class="control-label">发布分支最新commit:  <input class="form-control" type="text" name="app_name" style="width:150px" value="{{app.name}}"> </label>
+		<label class="control-label">所属产品ID:  <input class="form-control" type="text" name="prod_id" style="width:150px" value="{{app.prod_id}}"> </label> &nbsp&nbsp&nbsp&nbsp
+		<label class="control-label">应用负责人:  <input class="form-control" type="text" name="owner_list" style="width:150px" value="{{app.owner_list}}"> </label> </br></br>
+		<label class="control-label">当前线上版本号:  <input class="form-control" type="text" name="version" style="width:150px" value="{{app.version}}"> </label> &nbsp&nbsp&nbsp&nbsp
+		<label class="control-label">版本号前缀:  <input class="form-control" type="text" name="version_prefix" style="width:150px" value="{{app.version_prefix}}"> </label> </br></br>
+		<label class="control-label">SCM工具:  <input class="form-control" type="text" name="scm_tool" style="width:150px" value="{{app.scm_tool}}"> </label> &nbsp&nbsp&nbsp&nbsp
+		<label class="control-label">SCM库URL:  <input class="form-control" type="text" name="repo_url" style="width:500px" value="{{app.repo_url}}"> </label> </br></br>
+		<label class="control-label">部署路径:  <input class="form-control" type="text" name="deploy_path" style="width:150px" value="{{app.deploy_path}}"> </label> &nbsp&nbsp&nbsp&nbsp
+		<label class="control-label">部署模板类型:  <input class="form-control" type="text" name="deploy_type" style="width:500px" value="{{app.deploy_type}}"> </label> </br></br>
+		<label class="control-label">打包jenkins任务:  <input class="form-control" type="text" name="package_job" style="width:500px" value="{{app.package_job}}"> </label> </br></br>
+		<label class="control-label">部署jenkins任务:  <input class="form-control" type="text" name="deploy_job" style="width:500px" value="{{app.deploy_job}}"> </label> </br></br>
+		<label class="control-label">自动化测试jenkins任务:  <input class="form-control" type="text" name="auto_test_job" style="width:500px" value="{{app.auto_test_job}}"> </label> </br></br>
+
 	</form>
+
 
 	<form class="form-inline" role="form" >
 		<br></br>

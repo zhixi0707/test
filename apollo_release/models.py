@@ -59,9 +59,14 @@ class application(models.Model):
     version_prefix=models.CharField(max_length=20,default="null")
     scm_tool=models.CharField(max_length=20,default="null") # git or svn
     repo_url=models.URLField(max_length=300,default="null")
+    repo_name=models.CharField(max_length=50,default="null")
     deploy_path=models.CharField(max_length=50,default="null")
+    deploy_type=models.CharField(max_length=50,default="null")
     package_job=models.URLField(max_length=300,default="null")
+    deploy_job=models.URLField(max_length=300,default="null")
     auto_test_job=models.URLField(max_length=300,default="null")
+    #integrate=models.ForeignKey(app_integration,default=0)
+
 
 class app_version(models.Model):
     prod=models.ForeignKey(application)
@@ -76,7 +81,9 @@ class app_branch(models.Model):
     status=models.IntegerField(choices=BRANCH_STATUS, default=1)
     type=models.IntegerField(choices=BRANCH_TYPE, default=0)
     create_time=models.DateTimeField(auto_now_add=True)
+    latest_commit=models.CharField(max_length=100,default="null")
     purpose=models.TextField()
+    owner_list=models.CharField(max_length=50,default="null")
     dev_list=models.CharField(max_length=50,default="null")
     qa_list=models.CharField(max_length=50,default="null")
     ## can expend more properties, like "changed files" "lines" "merge_request" "ut_rate" etc
@@ -86,7 +93,8 @@ class app_integration(models.Model):
     app=models.ForeignKey(application,default=1)
     release_branch=models.OneToOneField(app_branch,default=1)
     dev_branch_list=models.CharField(max_length=100,default="null")# branch id list, use "," to split
-    status=models.CharField(max_length=500,default="null") # format "env:status,env:status" to record the progress
+    progress=models.CharField(max_length=500,default="null") # format "env:status,env:status" to record the progress
+    status=models.CharField(max_length=20,default="null") # open;i-progress;success;fail
     comments=models.TextField(default="null") # record the version action history "who when do what"
     ## can expend more properties, like "fun_test_pass_rate" ......
 

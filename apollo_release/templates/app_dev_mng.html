@@ -34,5 +34,59 @@
 		</div>
 		<input type="submit"  value="部署开发环境" class="btn btn-primary"/>
 	</form>
+	<p></p><p></p>
+	<table class="table table-bordered form-inline" align="center">
+		<thead >
+		<tr>
+			<th>
+				<div class="checkbox ">
+					<label>
+						<input type="checkbox" id="checkAll" value="">
+					</label>
+				</div>
+			</th>
+			<th>编号</th> <th>状态</th> <th>分支名称</th> <th>环境名称</th> <th>Commit</th> <th>版本号</th> <th>创建时间</th>  <th>创建人</th>
+			 <th>打包日志</th> <th>部署日志</th> <th>测试日志</th>
+			<!-- <th>版本前缀</th> <th>SCM工具</th> <th>SCM库URL</th> <th>部署路径</th> <th>打包jenkins任务</th> <th>自动化测试jenkins任务</th>
+            -->
+			<th>常用操作</th>
+		</tr>
+		</thead>
+		<tbody >
+		{%  for d in dev_node %}
+		<!-- 显示不同背景 -->
+		<tr {% if forloop.counter|divisibleby:"2"  %} class="active"
+		{% else %} class="success"  {% endif %}  >
+		<td>
+			<input type="checkbox" name="subBox" value="{{d.id}}" >
+		</td>
+		<td>{{ d.id }}</td>
+		<td>{{ d.status }}</td>
+		<td>{{ d.branch_name }}</td>
+		<td>{{ d.env_name }}</td>
+		<td>{{ d.commit }}</td>
+		<td>{{ d.version }}</td>
+		<td>{{ d.create_time }}</td>
+		<td>{{ d.created_by }}</td>
+		<td>{{ d.package_log }}</td>
+		<td>{{ d.deploy_log }}</td>
+		<td>{{ d.test_log }}</td>
+		<!--
+        <td>{{ d.version_prefix }}</td>
+        <td>{{ d.scm_tool }}</td>
+        <td>{{ d.repo_url }}</td>
+        <td>{{ d.deploy_path }}</td>
+        <td>{{ d.package_job }}</td>
+        <td>{{ d.auto_test_job }}</td>
+        -->
+		<td>&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">通过</a>
+			&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">失败</a>
+			&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">分支待集成</a>
+		</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
 </div>
 {% endblock %}

@@ -4,6 +4,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
+from django.db.models import Q
 
 # Create your views here.
 
@@ -17,7 +18,7 @@ from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from .models import product, application, app_branch
+from .models import product, application, app_branch, app_dev_node
 from apollo_cmdb.models import app_env
 
 import release_common
@@ -250,20 +251,45 @@ def app_dev_mng(request):
     dev_env=app_env.objects.filter(app_id=app_id)
 
     #get the open dev node for this app, maybe including the branch info
+    #dev_node=app_dev_node.objects.filter(app_id=app_id).filter("close"!=status)
+    dev_node=app_dev_node.objects.filter(Q(app_id = app_id ))
 
     return render(request, 'app_dev_mng.html',locals())
 
 def new_app_dev_node(request):
     app_id=request.POST['app_id']
     branch=request.POST['branch']
+    branch_info=branch.split(':')
+    branch_id=branch_info[0]
+    branch_name=branch_info[1]
     env=request.POST['env']
+    env_info=env.split(':')
+    env_id=env_info[0]
+    env_name=env_info[1]
     commit=request.POST['commit']
     #print (app_id)
-    #print (branch)
-    #print (env)
+    #print (branch_id)
+    #print (branch_name)
+    #print (env_id)
+    #print (env_name)
     #print (commit)
     #dev_branch=app_branch.objects.filter(app_id=app_id)
     #dev_env=app_env.objects.filter(app_id=app_id)
     #return render_to_response('app_dev_node.html',{'data':data},context_instance = RequestContext(request))
-    return HttpResponseRedirect("app_query")
+    node=app_dev_node()
+    node.app_id=app_id
+    node.branch_name=branch_name
+    node.branch_id=branch_id
+    node.env_name=env_name
+    node.env_id=env_id
+    node.commit=commit
+    node.save()
+    # then start the jenkins job (package and deploy)
+
+    #dev_branch=app_branch.objects.filter(app_id=app_id)
+    #dev_env=app_env.objects.filter(app_id=app_id)
+    #dev_node=app_dev_node.objects.filter(app_id=app_id)
+    #return render(request, 'app_dev_mng.html',locals())
+    url="app_dev_mng?app_id="+app_id
+    return HttpResponseRedirect(url)
 

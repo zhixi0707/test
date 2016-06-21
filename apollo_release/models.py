@@ -36,6 +36,7 @@ APP_VERSION_STATUS = (
     (9, 'verify_fail'),
 )
 
+
 class product(models.Model):
     name=models.CharField(max_length=20)
     status=models.IntegerField(choices=ACTIVE_STATUS, default=1)
@@ -109,12 +110,15 @@ class app_dev_node(models.Model):
     create_time=models.DateTimeField(auto_now_add=True)
     commit=models.CharField(max_length=50,default="null")
     created_by=models.CharField(max_length=50,default="aji")
+    archive_url=models.CharField(max_length=200,default="null") # for archive location
     package_status=models.CharField(max_length=20,default="null")# ongoing;success;fail
     deploy_status=models.CharField(max_length=20,default="null")# ongoing;success;fail
     test_status=models.CharField(max_length=20,default="null")# ongoing;success;fail
     package_log=models.CharField(max_length=200,default="null")
     deploy_log=models.CharField(max_length=200,default="null")
     test_log=models.CharField(max_length=200,default="null")
+    status=models.CharField(max_length=50,default="new") # new;ready;integrated;close;
+    version=models.CharField(max_length=20,default="null") # new;ready;integrated;close;
 
 
 ###################################################################

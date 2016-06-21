@@ -18,6 +18,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from .models import product, application, app_branch
+from apollo_cmdb.models import app_env
 
 import release_common
 
@@ -239,3 +240,30 @@ def app_br_add(request):
         return render(request, 'app_br_mng.html',locals())
     else:
         return HttpResponseRedirect("app_query")
+
+    # 新增dev process management
+    # to bo finished
+def app_dev_mng(request):
+    app_id=request.GET['app_id']
+    app=application.objects.get(id=app_id)
+    dev_branch=app_branch.objects.filter(app_id=app_id)
+    dev_env=app_env.objects.filter(app_id=app_id)
+
+    #get the open dev node for this app, maybe including the branch info
+
+    return render(request, 'app_dev_mng.html',locals())
+
+def new_app_dev_node(request):
+    app_id=request.POST['app_id']
+    branch=request.POST['branch']
+    env=request.POST['env']
+    commit=request.POST['commit']
+    #print (app_id)
+    #print (branch)
+    #print (env)
+    #print (commit)
+    #dev_branch=app_branch.objects.filter(app_id=app_id)
+    #dev_env=app_env.objects.filter(app_id=app_id)
+    #return render_to_response('app_dev_node.html',{'data':data},context_instance = RequestContext(request))
+    return HttpResponseRedirect("app_query")
+

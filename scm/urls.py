@@ -18,6 +18,7 @@ from django.contrib import admin
 #from branch import views as branch_views # from branch app
 from apollo_release import views as release_views
 
+from apollo_cmdb import views as cmdb_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -56,9 +57,17 @@ urlpatterns = [
     url(r'^app_ws$',release_views.app_ws,name='app_ws'),
     url(r'^app_br_mng$',release_views.app_br_mng,name='app_br_mng'),
     url(r'^app_br_add$',release_views.app_br_add,name='app_br_add'),
+    url(r'^app_dev_mng$',release_views.app_dev_mng,name='app_dev_mng'),
+    #url(r'^app_rel_mng$',release_views.app_rel_mng,name='app_rel_mng'),
+    #url(r'^app_rollback_mng$',release_views.app_rollback_mng,name='app_rollback_mng'),
+
+    # for app dev management
+    url(r'^new_app_dev_node$',release_views.new_app_dev_node,name='new_app_dev_node'),
 
     # for cmdb application
-
+    url(r'^app_cmdb$',cmdb_views.app_cmdb,name='app_cmdb'),
+    url(r'^app_env_mng$',cmdb_views.app_env_mng,name='app_env_mng'),
+    url(r'^app_env_add$',cmdb_views.app_env_add,name='app_env_add'),
 
     # for rca application
 

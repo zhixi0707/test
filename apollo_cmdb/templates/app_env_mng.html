@@ -11,43 +11,39 @@
 <div class="col-md-10">
 	<!-- bootstrap 特性容器  <div class="col-md-10">-->
 	<!-- <div class="container"> -->
-	<form action="/app_br_add" method="post" role="form">
+	<form action="/app_env_add" method="post" role="form">
 		{% csrf_token %}
 		<div class="form-group">
 			<label class="control-label">所属应用id：&nbsp </label>
 			<input class="form-control" type="text" readonly="readonly" name="app_id"  value="{{ app_id }}" >
 		</div>
 		<div class="form-group">
-			<label class="control-label">分支名称：&nbsp </label>
-			<input class="form-control" type="text" name="name" placeholder="Enter branch name"/>
+			<label class="control-label">环境名称：&nbsp </label>
+			<input class="form-control" type="text" name="name" placeholder="Enter env name"/>
 		</div>
 		<div class="form-group">
 			<input class="form-control" type="hidden" name="status" value="1" />
 		</div>
 		<div class="form-group">
-			<label class="control-label">分支类型：&nbsp(0:release; &nbsp &nbsp  1:develop; &nbsp &nbsp  2:other &nbsp) </label>
+			<label class="control-label">环境类型：&nbsp(1:DEV; &nbsp &nbsp  2:SIT; &nbsp 3:PRE; &nbsp 4:BETA; &nbsp 5:ONLINE;) </label>
 			<input class="form-control" type="text" name="type" placeholder="Enter branch type"/>
 		</div>
 		<div class="form-group">
-			<label class="control-label">分支说明：&nbsp </label>
-			<input class="form-control" type="text" name="purpose" placeholder="Enter branch purpose"/>
+			<label class="control-label">负责人：&nbsp </label>
+			<input class="form-control" type="text" name="owner" placeholder="Enter the owner"/>
 		</div>
 		<div class="form-group">
-			<label class="control-label">开发人员列表：&nbsp </label>
-			<input class="form-control" type="text" name="dev_list" placeholder="Enter dev list"/>
+			<label class="control-label">IP列表：&nbsp </label>
+			<input class="form-control" type="text" name="ip_list" placeholder="Enter the ip list"/>
 		</div>
-		<div class="form-group">
-			<label class="control-label">QA人员列表：&nbsp </label>
-			<input class="form-control" type="text" name="qa_list" placeholder="Enter QA list"/>
-		</div>
-		<input type="submit"  value="创建分支" class="btn btn btn-primary "/>
-		&nbsp&nbsp <a href="/app_ws?id={{app_id}}" class="btn btn-primary">返回工作区</a>
+		<input type="submit"  value="创建应用环境" class="btn btn btn-primary "/>
+		&nbsp&nbsp <a href="/app_cmdb" class="btn btn-primary">返回环境管理</a>
 	</form>
 	<!--  </div> -->
 	<p></p>
 	<form>
 		<br>
-		<label class="control-label">应用分支列表：&nbsp </label>
+		<label class="control-label">应用环境列表：&nbsp </label>
 	</form>
 	<table class="table table-bordered form-inline" align="center">
 		<thead >
@@ -59,14 +55,14 @@
 					</label>
 				</div>
 			</th>
-			<th>分支编号</th>  <th>分支名称</th> <th>分支状态</th> <th>分支类型</th> <th>分支说明</th>  <th>开发人员列表</th> <th>QA人员列表</th>
+			<th>环境编号</th>  <th>环境名称</th> <th>状态</th> <th>类型</th> <th>负责人</th> <th>IP列表</th>
 			<!-- <th>版本前缀</th> <th>SCM工具</th> <th>SCM库URL</th> <th>部署路径</th> <th>打包jenkins任务</th> <th>自动化测试jenkins任务</th>
             -->
 			<th>常用操作</th>
 		</tr>
 		</thead>
 		<tbody >
-		{%  for d in branches %}
+		{%  for d in env_list %}
 		<!-- 显示不同背景 -->
 		<tr {% if forloop.counter|divisibleby:"2"  %} class="active"
 		{% else %} class="success"  {% endif %}  >
@@ -77,9 +73,8 @@
 		<td>{{ d.name }}</td>
 		<td>{{ d.status }}</td>
 		<td>{{ d.type }}</td>
-		<td>{{ d.purpose }}</td>
-		<td>{{ d.dev_list }}</td>
-		<td>{{ d.qa_list }}</td>
+		<td>{{ d.owner }}</td>
+		<td>{{ d.ip_list }}</td>
 		<!--
         <td>{{ d.version_prefix }}</td>
         <td>{{ d.scm_tool }}</td>
@@ -88,8 +83,7 @@
         <td>{{ d.package_job }}</td>
         <td>{{ d.auto_test_job }}</td>
         -->
-		<td>&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">进入工作区</a>
-			&nbsp&nbsp<a href="/app_showByID?id={{d.id}}">修改</a>
+		<td>&nbsp&nbsp<a href="/app_showByID?id={{d.id}}">修改</a>
 			&nbsp&nbsp<a href="/app_deleteByID?id={{ d.id }}" class="text-danger">删除</a>
 		</td>
 		</tr>

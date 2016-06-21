@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from apollo_cmdb.models import app_env
 
 # Create your models here.
 BRANCH_STATUS = (
@@ -58,6 +59,7 @@ class application(models.Model):
     version=models.CharField(max_length=20,default="null")
     version_prefix=models.CharField(max_length=20,default="null")
     scm_tool=models.CharField(max_length=20,default="null") # git or svn
+    code_type=models.CharField(max_length=20,default="null") # java php etc
     repo_url=models.URLField(max_length=300,default="null")
     repo_name=models.CharField(max_length=50,default="null")
     deploy_path=models.CharField(max_length=50,default="null")
@@ -97,6 +99,23 @@ class app_integration(models.Model):
     status=models.CharField(max_length=20,default="null") # open;i-progress;success;fail
     comments=models.TextField(default="null") # record the version action history "who when do what"
     ## can expend more properties, like "fun_test_pass_rate" ......
+
+class app_dev_node(models.Model):
+    app=models.ForeignKey(application,default=1)
+    branch_name=models.CharField(max_length=50,default="null")
+    branch=models.ForeignKey(app_branch,default=1)
+    env_name=models.CharField(max_length=50,default="null")
+    env=models.ForeignKey(app_env,default=1)
+    create_time=models.DateTimeField(auto_now_add=True)
+    commit=models.CharField(max_length=50,default="null")
+    created_by=models.CharField(max_length=50,default="aji")
+    package_status=models.CharField(max_length=20,default="null")# ongoing;success;fail
+    deploy_status=models.CharField(max_length=20,default="null")# ongoing;success;fail
+    test_status=models.CharField(max_length=20,default="null")# ongoing;success;fail
+    package_log=models.CharField(max_length=200,default="null")
+    deploy_log=models.CharField(max_length=200,default="null")
+    test_log=models.CharField(max_length=200,default="null")
+
 
 ###################################################################
 # applications table

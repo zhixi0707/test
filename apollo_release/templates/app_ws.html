@@ -24,65 +24,12 @@
 
 	<form class="form-inline" role="form" >
 		<br></br>
-		<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-primary">应用信息管理</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_showByID?id={{app.id}}" class="btn btn-primary">应用信息管理</a> &nbsp&nbsp&nbsp&nbsp
 		<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-primary">代码分支管理</a> &nbsp&nbsp&nbsp&nbsp
-		<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-primary">开发过程管理</a> &nbsp&nbsp&nbsp&nbsp
-		<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-primary">集成发布管理</a> &nbsp&nbsp&nbsp&nbsp
-		<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-danger">历史版本回滚</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_mng?app_id={{app.id}}" class="btn btn-primary">开发过程管理</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_rel_mng?app_id={{app.id}}" class="btn btn-primary">集成发布管理</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_rollback_mng?app_id={{app.id}}" class="btn btn-danger">历史版本回滚</a> &nbsp&nbsp&nbsp&nbsp
 	</form>
-
-	<form>
-		<br>
-		<label class="control-label">应用分支列表(开发中和集成到该release分支中的开发分支)：&nbsp </label>
-	</form>
-	<table class="table table-bordered form-inline" align="center">
-		<thead >
-		<tr>
-			<th>
-				<div class="checkbox ">
-					<label>
-						<input type="checkbox" id="checkAll" value="">
-					</label>
-				</div>
-			</th>
-			<th>分支编号</th>  <th>分支名称</th> <th>分支状态</th> <th>分支类型</th> <th>分支说明</th>  <th>开发人员列表</th> <th>QA人员列表</th>
-			<!-- <th>版本前缀</th> <th>SCM工具</th> <th>SCM库URL</th> <th>部署路径</th> <th>打包jenkins任务</th> <th>自动化测试jenkins任务</th>
-            -->
-			<th>常用操作</th>
-		</tr>
-		</thead>
-		<tbody >
-		{%  for d in branches %}
-		<!-- 显示不同背景 -->
-		<tr {% if forloop.counter|divisibleby:"2"  %} class="active"
-		{% else %} class="success"  {% endif %}  >
-		<td>
-			<input type="checkbox" name="subBox" value="{{d.id}}" >
-		</td>
-		<td>{{ d.id }}</td>
-		<td>{{ d.name }}</td>
-		<td>{{ d.status }}</td>
-		<td>{{ d.type }}</td>
-		<td>{{ d.purpose }}</td>
-		<td>{{ d.dev_list }}</td>
-		<td>{{ d.qa_list }}</td>
-		<!--
-        <td>{{ d.version_prefix }}</td>
-        <td>{{ d.scm_tool }}</td>
-        <td>{{ d.repo_url }}</td>
-        <td>{{ d.deploy_path }}</td>
-        <td>{{ d.package_job }}</td>
-        <td>{{ d.auto_test_job }}</td>
-        -->
-		<td>&nbsp<a href="/app_dev_ws?id={{d.id}}" class="btn btn-primary">进入工作区</a>
-			&nbsp&nbsp<a href="/app_showByID?id={{d.id}}">修改</a>
-			&nbsp&nbsp<a href="/app_deleteByID?id={{ d.id }}" class="text-danger">删除</a>
-		</td>
-		</tr>
-		{% endfor %}
-		</tbody>
-
-	</table>
 
 </div>
 

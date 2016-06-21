@@ -1,6 +1,7 @@
-﻿{% extends "./release_base.html" %}
+﻿{% extends "./cmdb_base.html" %}
 
 {% block main%}
+	
 
 <style>
 <!-- 设置table内容居中 -->
@@ -11,11 +12,10 @@
 
 <!-- 以Bootstrap3为模板 构建前台界面 -->
 <div class="col-md-10">
-<form action="/prod_queryByID" method="get" role="form">
+<form action="/app_queryByID" method="get" role="form">
  <div class="form-inline">
-  <label class="control-label">产品编号: &nbsp</label><input class="form-control" type="text" name="id" placeholder="Enter id"/>
+  <label class="control-label">应用编号: &nbsp</label><input class="form-control" type="text" name="id" placeholder="Enter id"/>
   <input type="submit" id="queryById" value="查询" class="btn btn-default "/>
-  &nbsp&nbsp<a href="/prod_new" class="btn btn-primary">添加</a>
   </div>
 </form>
 <p></p>
@@ -29,7 +29,10 @@
 		</label>
 		</div>
 	</th>
-	<th>产品编号</th>  <th>产品名称</th> <th>产品状态</th> <th>负责人</th> <th>创建时间</th>  <th>产品说明</th> <th>常用操作</th>
+	<th>应用编号</th>  <th>应用名称</th> <th>应用状态</th> <th>所属产品</th> <th>创建时间</th>  <th>线上版本号</th>
+		<!-- <th>版本前缀</th> <th>SCM工具</th> <th>SCM库URL</th> <th>部署路径</th> <th>打包jenkins任务</th> <th>自动化测试jenkins任务</th>
+		-->
+		<th>常用操作</th>
 	</tr>
 </thead>
 <tbody >
@@ -43,14 +46,18 @@
  <td>{{ d.id }}</td>
  <td>{{ d.name }}</td> 
  <td>{{ d.status }}</td>
- <td>{{ d.owner }}</td>
+ <td>{{ d.prod_id }}</td>
  <td>{{ d.create_time }}</td>
- <td>{{ d.note }}</td>
- <td>&nbsp<a href="/app_new?prod_id={{d.id}}" class="btn btn-primary">添加应用</a>
-	 &nbsp&nbsp<a href="/prod_showByID?id={{d.id}}">修改</a>
-	 &nbsp&nbsp<a href="/prod_deleteByID?id={{ d.id }}" class="text-danger">删除</a>
-
-
+ <td>{{ d.version }}</td>
+<!--
+<td>{{ d.version_prefix }}</td>
+<td>{{ d.scm_tool }}</td>
+<td>{{ d.repo_url }}</td>
+<td>{{ d.deploy_path }}</td>
+<td>{{ d.package_job }}</td>
+<td>{{ d.auto_test_job }}</td>
+-->
+ <td>&nbsp<a href="/app_env_mng?app_id={{d.id}}" class="btn btn-primary">应用环境管理</a>
  </td>
  </tr>
 {% endfor %}

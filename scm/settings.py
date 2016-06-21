@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apollo_release',
     'apollo_cmdb',
+    'apollo_release',
     'apollo_rca',
     'apollo_user',
 ]
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'scm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ci_scm2',
+        'NAME': 'ci_scm',
         'USER': 'root',
         'PASSWORD':'55admin',
         'HOST':'127.0.0.1',

@@ -1,0 +1,38 @@
+﻿{% extends "./release_base.html" %}
+{% block main%}
+
+<style>
+	<!-- 设置table内容居中 -->
+	.table th, .table td {
+	text-align: center;
+	}
+</style>
+
+<div class="col-md-10">
+	<form action="/new_app_dev_node" method="post" role="form">
+		{% csrf_token %}
+		<input class="form-control" type="hidden" readonly="readonly" name="app_id"  value="{{ app_id }}" >
+		<div class="form-group">
+			<label class="control-label">选择开发分支: &nbsp</label>
+			<select class="form-control" name="branch">
+				{%  for d in dev_branch %}
+					<option>{{d.id}}:{{d.name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="control-label">选择开发环境: &nbsp</label>
+			<select class="form-control" name="env">
+				{%  for d in dev_env %}
+					<option>{{d.id}}:{{d.name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="control-label">选择commit(空表示最新): &nbsp</label>
+			<input class="form-control" type="text" name="commit" placeholder="please input the commit"/>
+		</div>
+		<input type="submit"  value="部署开发环境" class="btn btn-primary"/>
+	</form>
+</div>
+{% endblock %}

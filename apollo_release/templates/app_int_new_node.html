@@ -1,0 +1,92 @@
+﻿{% extends "./release_base.html" %}
+{% block main%}
+
+<style>
+	<!-- 设置table内容居中 -->
+	.table th, .table td {
+	text-align: center;
+	}
+</style>
+
+<div class="col-md-10">
+	<form class="form-inline" action="/app_int_mng_with_env" method="post" role="form">
+		{% csrf_token %}
+		<input class="form-control" type="hidden" readonly="readonly" name="app_id"  value="{{ app_id }}" >
+		<div class="form-group">
+			<label class="control-label">当前测试环境: &nbsp</label>
+			<select class="form-control" name="int_env">
+					<option>{{int_env.id}}:{{int_env.name}}</option>
+			</select>
+		</div>
+		<!--
+		<input type="submit"  value="进入测试环境" class="btn btn-primary"/>
+		-->
+		<form class="form-inline" role="form">
+			</br></br>
+			<label class="control-label">当前发布分支:  <input class="form-control" type="text" name="rel_br" style="width:150px" value="{{int_node.release_branch}}"> </label> &nbsp&nbsp&nbsp&nbsp
+			<label class="control-label">commit号:  <input class="form-control" type="text" name="commit_id" style="width:150px" value="{{int_node.commit}}"> </label> </br></br>
+			<label class="control-label">分支说明:  <input class="form-control" type="text" name="purpose"  style="width:500px" value="{{int_node.purpose}}"> </label> </br>
+		</form>
+
+		<form class="form-inline" role="form" >
+			<br></br>
+			<a href="/app_showByID?id={{app.id}}" class="btn btn-primary">部署环境</a> &nbsp&nbsp&nbsp&nbsp
+			<a href="/app_br_mng?app_id={{app.id}}" class="btn btn-primary">测试通过</a> &nbsp&nbsp&nbsp&nbsp
+			<a href="/app_dev_mng?app_id={{app.id}}" class="btn btn-primary">测试失败</a> &nbsp&nbsp&nbsp&nbsp
+			<a href="/app_int_mng?app_id={{app.id}}" class="btn btn-primary">启动发布</a> &nbsp&nbsp&nbsp&nbsp
+			<a href="/app_rollback_mng?app_id={{app.id}}" class="btn btn-danger">发布历史</a> &nbsp&nbsp&nbsp&nbsp
+		</form>
+
+	</form>
+	<p></p><p></p>
+	<label class="control-label">选择待集成分支: &nbsp</label>
+	<table class="table table-bordered form-inline" align="center">
+		<thead >
+		<tr>
+			<th>
+				<div class="checkbox ">
+					<label>
+						<input type="checkbox" id="checkAll" value="">
+					</label>
+				</div>
+			</th>
+			<th>编号</th> <th>分支名称</th> <th>类型</th> <th>状态</th> <th>最新commit</th> <th>开发人员</th>  <th>测试人员</th> <th>用途</th>
+			<!-- <th>版本前缀</th> <th>SCM工具</th> <th>SCM库URL</th> <th>部署路径</th> <th>打包jenkins任务</th> <th>自动化测试jenkins任务</th>
+            -->
+			<th>常用操作</th>
+		</tr>
+		</thead>
+		<tbody >
+		{%  for d in branch_ready %}
+		<!-- 显示不同背景 -->
+		<tr {% if forloop.counter|divisibleby:"2"  %} class="active"
+		{% else %} class="success"  {% endif %}  >
+		<td>
+			<input type="checkbox" name="subBox" value="{{d.id}}" >
+		</td>
+		<td>{{ d.id }}</td>
+		<td>{{ d.name }}</td>
+		<td>{{ d.type }}</td>
+		<td>{{ d.status }}</td>
+		<td>{{ d.latest_commit }}</td>
+		<td>{{ d.dev_list }}</td>
+		<td>{{ d.qa_list }}</td>
+		<td>{{ d.purpose }}</td>
+		<!--
+        <td>{{ d.version_prefix }}</td>
+        <td>{{ d.scm_tool }}</td>
+        <td>{{ d.repo_url }}</td>
+        <td>{{ d.deploy_path }}</td>
+        <td>{{ d.package_job }}</td>
+        <td>{{ d.auto_test_job }}</td>
+        -->
+		<td>&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">加入变更</a>
+			&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">退出变更</a>
+		</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+
+	</table>
+</div>
+{% endblock %}

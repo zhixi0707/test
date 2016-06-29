@@ -8,6 +8,8 @@ GITLAB_API = 'http://gitlab.mogujie.org/api/v3/projects/'
 SUCCESS = 1
 FAIL = 0
 
+JENKINS_TOKEN='ci_scm'
+
 def gitlabGetRepoName(repo):
     global GITLAB_URL
     global GITLAB_KEY
@@ -31,6 +33,18 @@ def gitlabCreateBranch(repo_name,branch_name):
     print GITLAB_KEY
     print r.status_code
     print r.text
+    if r.status_code == 200 or r.status_code == 201  :
+        print ('success!!')
+        return SUCCESS
+    else:
+        print ('branch creation fail')
+        return FAIL
+
+def startJenkins(job,args):
+    url=job + '/buildWithParameters?' + 'token=' + JENKINS_TOKEN + args
+    print url
+    r=requests.get(url)
+    print r.status_code
     if r.status_code == 200 or r.status_code == 201  :
         print ('success!!')
         return SUCCESS

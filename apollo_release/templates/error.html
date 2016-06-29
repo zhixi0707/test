@@ -1,0 +1,16 @@
+﻿{% extends "./release_base.html" %}
+{% block main%}
+
+<style>
+	<!-- 设置table内容居中 -->
+	.table th, .table td {
+	text-align: center;
+	}
+</style>
+
+<div class="col-md-10">
+	<form class="form-inline" action="/app_int_mng_with_env" method="post" role="form">
+		<label class="control-label">{{msg}}: &nbsp</label>
+	</form>
+</div>
+{% endblock %}

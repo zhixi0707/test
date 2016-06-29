@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e11e6061-20be-4b50-a5ed-35413b1bff16" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apollo_release/models.py" afterPath="$PROJECT_DIR$/apollo_release/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apollo_release/release_common.py" afterPath="$PROJECT_DIR$/apollo_release/release_common.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html" afterPath="$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apollo_release/templates/app_ws.html" afterPath="$PROJECT_DIR$/apollo_release/templates/app_ws.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apollo_release/views.py" afterPath="$PROJECT_DIR$/apollo_release/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scm/urls.py" afterPath="$PROJECT_DIR$/scm/urls.py" />
     </list>
     <ignored path="scm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apollo_release/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48360655">
-              <caret line="254" column="61" selection-start-line="254" selection-start-column="61" selection-end-line="254" selection-end-column="61" />
+            <state vertical-scroll-proportion="-17.11111">
+              <caret line="325" column="32" selection-start-line="325" selection-start-column="32" selection-end-line="325" selection-end-column="32" />
               <folding>
                 <element signature="e#24#59#0" expanded="true" />
               </folding>
@@ -37,34 +41,70 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_dev_mng.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html">
+      <file leaf-file-name="error.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/error.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.411764">
-              <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
+            <state vertical-scroll-proportion="-9.375">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app_int_inprogress.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_inprogress.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apollo_release/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="118" column="12" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.408867">
+              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#24#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_new.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_new.html">
+      <file leaf-file-name="app_int_new_node.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_new_node.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="68" />
+            <state vertical-scroll-proportion="-7.9411764">
+              <caret line="27" column="141" selection-start-line="27" selection-start-column="141" selection-end-line="27" selection-end-column="141" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_int_mng_with_env.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_mng_with_env.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.235294">
+              <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_dev_mng.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.294118">
+              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="18" />
+              <folding>
+                <element signature="n#table#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/scm/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+              <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
               <folding>
                 <element signature="e#636#668#0" expanded="true" />
               </folding>
@@ -81,56 +121,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_update.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_update.html">
+      <file leaf-file-name="app_int_mng.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_mng.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="51" />
+            <state vertical-scroll-proportion="-4.7058825">
+              <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_curd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_curd.html">
+      <file leaf-file-name="app_ws.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_ws.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="67" selection-end-column="8" />
-              <folding>
-                <element signature="n#table#0;n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prod_curd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_release/templates/prod_curd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.25">
-              <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app_env_mng.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_cmdb/templates/app_env_mng.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
-              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app_dev.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="85" />
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="10" column="170" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="170" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#3;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#4;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#5;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#6;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#7;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#8;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#9;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#10;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#11;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,7 +181,6 @@
         <option value="$PROJECT_DIR$/branch/views.py" />
         <option value="$PROJECT_DIR$/apollo_release/templates/app_test.html" />
         <option value="$PROJECT_DIR$/apollo_release/release_env.py" />
-        <option value="$PROJECT_DIR$/apollo_release/release_common.py" />
         <option value="$PROJECT_DIR$/apollo_release/templates/app_dev.html" />
         <option value="$PROJECT_DIR$/apollo_release/templates/app_curd.html" />
         <option value="$PROJECT_DIR$/apollo_release/templates/app_update.html" />
@@ -173,7 +189,6 @@
         <option value="$PROJECT_DIR$/apollo_release/templates/prod_new.html" />
         <option value="$PROJECT_DIR$/apollo_release/templates/prod_update.html" />
         <option value="$PROJECT_DIR$/apollo_release/templates/app_new.html" />
-        <option value="$PROJECT_DIR$/apollo_release/templates/app_ws.html" />
         <option value="$PROJECT_DIR$/apollo_cmdb/templates/cmdb_base.html" />
         <option value="$PROJECT_DIR$/apollo_release/templates/release_base.html" />
         <option value="$PROJECT_DIR$/apollo_cmdb/models.py" />
@@ -181,10 +196,16 @@
         <option value="$PROJECT_DIR$/apollo_cmdb/templates/app_cmdb.html" />
         <option value="$PROJECT_DIR$/apollo_cmdb/templates/app_env_mng.html" />
         <option value="$PROJECT_DIR$/apollo_cmdb/views.py" />
-        <option value="$PROJECT_DIR$/scm/urls.py" />
-        <option value="$PROJECT_DIR$/apollo_release/models.py" />
+        <option value="$PROJECT_DIR$/apollo_release/release_common.py" />
         <option value="$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html" />
+        <option value="$PROJECT_DIR$/scm/urls.py" />
+        <option value="$PROJECT_DIR$/apollo_release/templates/app_ws.html" />
+        <option value="$PROJECT_DIR$/apollo_release/templates/app_int_mng_with_env.html" />
+        <option value="$PROJECT_DIR$/apollo_release/templates/error.html" />
+        <option value="$PROJECT_DIR$/apollo_release/templates/app_int_mng.html" />
         <option value="$PROJECT_DIR$/apollo_release/views.py" />
+        <option value="$PROJECT_DIR$/apollo_release/templates/app_int_new_node.html" />
+        <option value="$PROJECT_DIR$/apollo_release/models.py" />
       </list>
     </option>
   </component>
@@ -198,7 +219,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="730" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -225,9 +246,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -326,6 +345,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -721,7 +742,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="730" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="729" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -732,7 +753,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23344104" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -760,7 +781,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15105008" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23344104" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33020344" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -794,57 +815,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scm/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-          <folding>
-            <element signature="e#636#668#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_curd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="43" />
-          <folding>
-            <element signature="n#table#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -863,9 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="109" />
-          <folding>
-            <element signature="n#div#6;n#form#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -911,7 +883,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="35" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -947,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -963,13 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#2;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#1;n#a#0;n#li#2;n#ul#0;n#li#2;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -977,9 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,10 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0588236">
           <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,14 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0833335">
           <caret line="78" column="59" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/release_common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,9 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1086,9 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1120,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="19.375">
           <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,7 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1136,13 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-72.5">
           <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#2;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#1;n#a#0;n#li#2;n#ul#0;n#li#2;n#ul#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1150,40 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="109" />
-          <folding>
-            <element signature="n#div#6;n#form#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_ws.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#3;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#4;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#5;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#6;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#7;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#8;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#9;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#10;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#11;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1203,66 +1103,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scm/urls.py">
+    <entry file="file://$PROJECT_DIR$/apollo_cmdb/templates/app_env_mng.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/prod_curd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.625">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="85" />
           <folding>
-            <element signature="e#636#668#0" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_cmdb/templates/app_env_mng.html">
+    <entry file="file://$PROJECT_DIR$/apollo_release/release_common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_curd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="67" selection-end-column="8" />
+        <state vertical-scroll-proportion="-17.25">
+          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scm/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
+          <folding>
+            <element signature="e#636#668#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_inprogress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.294118">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="18" />
           <folding>
             <element signature="n#table#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/prod_curd.html">
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_mng_with_env.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.25">
-          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
+        <state vertical-scroll-proportion="-3.235294">
+          <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/models.py">
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/error.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="12" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
+        <state vertical-scroll-proportion="-9.375">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_mng.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.7058825">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_ws.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="170" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="170" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#3;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#4;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#5;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#6;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#7;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#8;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#9;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#10;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#11;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_dev_mng.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.411764">
-          <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apollo_release/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48360655">
-          <caret line="254" column="61" selection-start-line="254" selection-start-column="61" selection-end-line="254" selection-end-column="61" />
+        <state vertical-scroll-proportion="-17.11111">
+          <caret line="325" column="32" selection-start-line="325" selection-start-column="32" selection-end-line="325" selection-end-column="32" />
           <folding>
             <element signature="e#24#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/templates/app_int_new_node.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9411764">
+          <caret line="27" column="141" selection-start-line="27" selection-start-column="141" selection-end-line="27" selection-end-column="141" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#label#0;n#form#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#1;n#form#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#2;n#form#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apollo_release/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.408867">
+          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>

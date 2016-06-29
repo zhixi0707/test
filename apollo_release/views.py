@@ -18,7 +18,7 @@ from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from .models import product, application, app_branch, app_dev_node
+from .models import product, application, app_branch, app_dev_node, app_int_node
 from apollo_cmdb.models import app_env
 
 import release_common
@@ -248,11 +248,15 @@ def app_dev_mng(request):
     app_id=request.GET['app_id']
     app=application.objects.get(id=app_id)
     dev_branch=app_branch.objects.filter(app_id=app_id)
-    dev_env=app_env.objects.filter(app_id=app_id)
+    dev_env=app_env.objects.filter(app_id=app_id).filter(type=1)
 
     #get the open dev node for this app, maybe including the branch info
     #dev_node=app_dev_node.objects.filter(app_id=app_id).filter("close"!=status)
-    dev_node=app_dev_node.objects.filter(Q(app_id = app_id ))
+    dev_node=app_dev_node.objects.filter(Q(app_id = app_id )).filter(status='new').order_by("-create_time")
+    #dev_node=dev_node.filter(status='new')
+    # get env info, include dev env and sit env
+    dev_env=app_env.objects.filter(app_id=app_id).filter(type=1) # for dev env
+    int_env=app_env.objects.filter(app_id=app_id).filter(type=2) # for sit env
 
     return render(request, 'app_dev_mng.html',locals())
 
@@ -284,12 +288,79 @@ def new_app_dev_node(request):
     node.env_id=env_id
     node.commit=commit
     node.save()
-    # then start the jenkins job (package and deploy)
+    # then start the dev node (including package, deploy, and auto test if configed )
+    # release_common.startDevNode(app_id,node_id)
 
-    #dev_branch=app_branch.objects.filter(app_id=app_id)
-    #dev_env=app_env.objects.filter(app_id=app_id)
-    #dev_node=app_dev_node.objects.filter(app_id=app_id)
-    #return render(request, 'app_dev_mng.html',locals())
+    app=application.objects.get(id=app_id)
+    args="&node_id=" + str(node.id)
+    release_common.startJenkins(app.package_job,args)
+    # release_common.startDevNode(app_id,node_id)
+
     url="app_dev_mng?app_id="+app_id
     return HttpResponseRedirect(url)
+
+
+
+def app_int_mng(request):
+    app_id=request.GET['app_id']
+    all_env=app_env.objects.filter(app_id=app_id).filter(type=2) # for sit env
+    #print len(int_env)
+
+    env_num=len(all_env)
+    if env_num == 0:
+        print "NO int env !!"
+        msg = "NO int env !!"
+        return render_to_response('error.html',{'msg':msg})
+    elif env_num == 1:
+        int_env=all_env[0]
+        all_node=app_int_node.objects.filter(app_id=app_id).filter(sit_env_id=int_env.id).filter(status='in-progress')
+        node_num=len(all_node)
+        if node_num == 0:
+            # return new int node page
+            branch_ready=app_branch.objects.filter(app_id=app_id).filter(status=1).filter(type=1)
+            int_node=app_int_node()
+            return render(request, 'app_int_new_node.html',locals())
+        elif node_num == 1:
+            # return on-going node page
+            branch_ready=app_branch.objects.filter(app_id=app_id).filter(status=1).filter(type=1)
+            int_node=all_node[0]
+            return render(request, 'app_int_mng.html',locals())
+    else:
+        print "more than one int env for this app"
+        msg="more than one int env for this app"
+        return render_to_response('error.html',{'msg':msg})
+
+
+    #return render(request, 'app_int_mng.html',locals())
+
+    # check the app for integration process
+    # no "on-going" integration, then new a int node
+    #, otherwise, show the integration
+#def app_int_mng(request):
+
+
+def app_int_mng_with_env(request):
+    app_id=request.POST.get['app_id']
+    int_env_used=request.POST.get['int_env']
+    env_info=int_env_used.split(':')
+    branch_ready=app_branch.objects.filter(app_id=app_id).filter(status=1).filter(type=1)
+    int_env=app_env.objects.filter(app_id=app_id).filter(type=2) # for sit env
+    # need to check only one int_node is returned!!!
+    int_node=app_int_node.objects.filter(app_id=app_id).filter(sit_env_id=env_info[0]).filter(status='in-progress')
+    #int_node=app_int_node.objects.get(app_id=app_id).get(sit_env_id=env_info[0]).get(status='in-progress')
+    num_node=len(int_node)
+    if num_node == 0:
+        print "No on-going node"
+        return render(request, 'app_int_new_node.html',locals())
+    elif num_node == 1:
+        int_node_case=int_node[0]
+        rel_br=app_branch.objects.get(id=int_node_case.release_branch_id)
+        #branch_int=
+        return render(request, 'app_int_process.html',locals())
+    else:
+        print "ERROR!! more than one int node is in progress"
+        # return error page
+
+    #int_env=app_env.objects.filter(app_id=app_id).filter(type=2) # for sit env
+    #return render(request, 'app_int_mng_with_env.html',locals())
 

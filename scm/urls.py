@@ -60,6 +60,7 @@ urlpatterns = [
     url(r'^app_dev_mng$',release_views.app_dev_mng,name='app_dev_mng'),
     url(r'^app_int_mng$',release_views.app_int_mng,name='app_int_mng'),
     url(r'^app_int_mng_with_env$',release_views.app_int_mng_with_env,name='app_int_mng_with_env'),
+    url(r'^app_dev_node_detail$',release_views.app_dev_node_detail,name='app_dev_node_detail'),
     #url(r'^app_rel_mng$',release_views.app_rel_mng,name='app_rel_mng'),
     #url(r'^app_rollback_mng$',release_views.app_rollback_mng,name='app_rollback_mng'),
 

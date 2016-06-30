@@ -299,6 +299,9 @@ def new_app_dev_node(request):
     url="app_dev_mng?app_id="+app_id
     return HttpResponseRedirect(url)
 
+def app_dev_node_detail(request):
+    node_id=request.GET['id']
+    return render(request, 'app_dev_node_detail.html',locals())
 
 
 def app_int_mng(request):

@@ -5,8 +5,26 @@
 </head>
 
 <div class="col-md-10">
-	<label class="control-label">部署实例(id:{{node_id}})的进度: &nbsp</label> </br>
-	<span class="glyphicon glyphicon-star-empty"></span>
+
+	<form class="form-inline"  method="post" role="form">
+		<label class="control-label">部署实例(id:{{node_id}})的当前状态是{{dev_node.status}},进度如下: &nbsp</label> </br>
+
+		<table class="table  form-inline" align="center">
+			<thead >
+			<tr>
+				<th>构建打包<img src="/static/img/{{dev_node.package_status}}.gif"></th> <th>环境部署<img src="/static/img/{{dev_node.deploy_status}}.gif"></th> <th>环境测试<img src="/static/img/{{dev_node.test_status}}.gif"></th>
+			</tr>
+			</thead>
+
+		</table>
+
+		<div class="progress">
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{progress_bar}}%">
+				</div>
+			</div>
+		</div>
+	</form>
 
 </div>
 

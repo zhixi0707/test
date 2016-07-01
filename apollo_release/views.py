@@ -301,6 +301,21 @@ def new_app_dev_node(request):
 
 def app_dev_node_detail(request):
     node_id=request.GET['id']
+    dev_node=app_dev_node.objects.get(id=node_id)
+    print dev_node.package_status
+    print dev_node.deploy_status
+    print dev_node.test_status
+    if dev_node.package_status in ['null']:
+        progress_bar=0
+    elif dev_node.package_status in ['ongoing','fail']:
+        print dev_node.package_status
+        progress_bar=33
+    elif dev_node.deploy_status in ['null','ongoing','fail']:
+        print dev_node.deploy_status
+        progress_bar=66
+    elif dev_node.test_status in ['null','ongoing','fail','success']:
+        print dev_node.test_status
+        progress_bar=100
     return render(request, 'app_dev_node_detail.html',locals())
 
 

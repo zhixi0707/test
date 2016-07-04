@@ -79,7 +79,7 @@
         <td>{{ d.auto_test_job }}</td>
         -->
 		<td>&nbsp<a href="/app_dev_node_detail?id={{d.id}}" class="btn btn-primary">部署详情</a>
-			&nbsp<a href="/app_ws?id={{d.id}}" class="btn btn-primary">分支待集成</a>
+			&nbsp<a href="/app_ws?id={{d.id}}" onclick="return false;" class="btn btn-primary">分支待集成</a>
 		</td>
 		</tr>
 		{% endfor %}

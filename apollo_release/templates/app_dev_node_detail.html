@@ -26,6 +26,18 @@
 		</div>
 	</form>
 
+	<form class="form-inline" role="form" >
+		<br></br>
+		<a href="/app_dev_setNodeStatus?node_id={{node_id}}&type=test&value=success" class="btn btn-primary">测试成功</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_setNodeStatus?node_id={{node_id}}&type=test&value=fail" class="btn btn-primary">测试失败</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_mng?app_id={{app.id}}" class="btn btn-primary">分支待集成</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_setNodeStatus?node_id={{node_id}}&type=package&value=success" class="btn btn-default">hook打包成功</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_setNodeStatus?node_id={{node_id}}&type=package&value=fail" class="btn btn-default">hook打包失败</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_setNodeStatus?node_id={{node_id}}&type=deploy&value=success" class="btn btn-default">hook部署成功</a> &nbsp&nbsp&nbsp&nbsp
+		<a href="/app_dev_setNodeStatus?node_id={{node_id}}&type=deploy&value=fail" class="btn btn-default">hook部署失败</a> &nbsp&nbsp&nbsp&nbsp
+	</form>
+
+
 </div>
 
 <!-- 以Bootstrap3为模板 构建前台界面 -->

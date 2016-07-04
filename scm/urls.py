@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 #from branch import views as branch_views # from branch app
 from apollo_release import views as release_views
+from apollo_release import release_common as common_views
 
 from apollo_cmdb import views as cmdb_views
+#import release_common
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -63,9 +65,14 @@ urlpatterns = [
     url(r'^app_dev_node_detail$',release_views.app_dev_node_detail,name='app_dev_node_detail'),
     #url(r'^app_rel_mng$',release_views.app_rel_mng,name='app_rel_mng'),
     #url(r'^app_rollback_mng$',release_views.app_rollback_mng,name='app_rollback_mng'),
+    # for pre and post hook
 
-    # for app dev management
     url(r'^new_app_dev_node$',release_views.new_app_dev_node,name='new_app_dev_node'),
+    url(r'^app_dev_node_detail$',release_views.app_dev_node_detail,name='app_dev_node_detail'),
+    # for app dev management
+    url(r'^node_prehook$',release_views.node_prehook,name='node_prehook'),
+    url(r'^node_posthook$',release_views.node_posthook,name='node_posthook'),
+    #url(r'^node_prehook$',common_views.node_prehook,name='node_prehook'),
 
     # for cmdb application
     url(r'^app_cmdb$',cmdb_views.app_cmdb,name='app_cmdb'),

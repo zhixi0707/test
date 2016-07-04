@@ -18,7 +18,7 @@ from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from .models import product, application, app_branch, app_dev_node, app_int_node
+from .models import product, application, app_branch, app_dev_node, app_int_node, app_process_dev
 from apollo_cmdb.models import app_env
 
 import release_common
@@ -292,11 +292,14 @@ def new_app_dev_node(request):
     # release_common.startDevNode(app_id,node_id)
 
     app=application.objects.get(id=app_id)
-    args="&node_id=" + str(node.id)
-    release_common.startJenkins(app.package_job,args)
+    #args="&node_id=" + str(node.id)
+    #release_common.startJenkins(app.package_job,args)
+    release_common.startDevNode(app_id,node.id,"package")
+    # start devNode
     # release_common.startDevNode(app_id,node_id)
 
-    url="app_dev_mng?app_id="+app_id
+    #url="app_dev_mng?app_id="+app_id
+    url="app_dev_node_detail?id="+str(node.id)
     return HttpResponseRedirect(url)
 
 def app_dev_node_detail(request):
@@ -382,3 +385,18 @@ def app_int_mng_with_env(request):
     #int_env=app_env.objects.filter(app_id=app_id).filter(type=2) # for sit env
     #return render(request, 'app_int_mng_with_env.html',locals())
 
+def node_prehook(request):
+    env=request.GET['env']
+    stage=request.GET['stage']
+    node_id=request.GET['node_id']
+    status=request.GET['status']
+
+    release_common.node_prehook_act(env,stage,node_id,status)
+
+def node_posthook(request):
+    env=request.GET['env']
+    stage=request.GET['stage']
+    node_id=request.GET['node_id']
+    status=request.GET['status']
+
+    release_common.node_posthook_act(env,stage,node_id,status)
